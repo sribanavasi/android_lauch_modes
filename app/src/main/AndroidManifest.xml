@@ -26,7 +26,7 @@
         <activity
             android:name=".Activity_B"
             android:exported="false"
-            android:launchMode="singleTask" />
+            android:launchMode="singleInstance" />
         <activity
             android:name=".Activity_C"
             android:exported="false"
