@@ -26,7 +26,8 @@
         <activity
             android:name=".Activity_B"
             android:exported="false"
-            android:launchMode="singleTask" />
+            android:launchMode="singleTask"
+            android:taskAffinity="com.appadda.new_affinity" />
         <activity
             android:name=".Activity_C"
             android:exported="false"
