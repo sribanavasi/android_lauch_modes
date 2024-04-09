@@ -40,12 +40,22 @@
         android:layout_height="wrap_content"
         android:text="Start Activity D" />
 
+    <TextView
+        android:id="@+id/newIntentCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#000000"
+        android:paddingLeft="5dp"
+        android:textColor="#FFFFFF" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbars="vertical">
 
-        <TextView
+
+    <TextView
             android:id="@+id/textViewTaskInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

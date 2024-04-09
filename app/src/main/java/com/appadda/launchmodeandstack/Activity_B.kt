@@ -1,5 +1,6 @@
 package com.appadda.launchmodeandstack
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -13,6 +14,7 @@ class Activity_B : BaseActivity() {
     }
 
     private var currentInstanceValue = 0
+    private var newIntentCount = 0
 
     private var buttonStartActivityA: Button? = null
     private var buttonStartActivityB: Button? = null
@@ -20,6 +22,7 @@ class Activity_B : BaseActivity() {
     private var buttonStartActivityD: Button? = null
     private var textViewTaskInfo: TextView? = null
     private var textViewInstanceValue: TextView? = null
+    private var newIntentCountText: TextView? = null
 
     init {
         instanceCounter++
@@ -35,6 +38,7 @@ class Activity_B : BaseActivity() {
         buttonStartActivityD = findViewById<View>(R.id.buttonStartActivityD) as Button
         textViewTaskInfo = findViewById<View>(R.id.textViewTaskInfo) as TextView
         textViewInstanceValue = findViewById<View>(R.id.textViewInstanceValue) as TextView
+        newIntentCountText = findViewById<View>(R.id.newIntentCount) as TextView
         textViewInstanceValue!!.append(",Current instance: $currentInstanceValue")
         buttonStartActivityA!!.setOnClickListener(this)
         buttonStartActivityB!!.setOnClickListener(this)
@@ -42,11 +46,17 @@ class Activity_B : BaseActivity() {
         buttonStartActivityD!!.setOnClickListener(this)
     }
 
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        newIntentCount++
+        newIntentCountText?.text = "new Intent Count: $newIntentCount"
+    }
+
 
     override fun onResume() {
         super.onResume()
         Log.i(TAG, "Instances: $currentInstanceValue")
-        textViewTaskInfo?.text = getAppTaskState()
+        textViewTaskInfo!!.text = getAppTaskState()
     }
 
     override fun onClick(view: View?) {
